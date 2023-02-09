@@ -2,7 +2,8 @@
   <div class="container py-md-5 container--narrow">
       <h2>
         <img class="avatar-small" src="/storage/avatars/{{auth()->user()->avatar}}" /> {{$username}}
-        <form class="ml-2 d-inline" action="#" method="post">
+        <form class="ml-2 d-inline" action="/create-follow/{{$username}}" method="post">
+          @csrf
           <button class="btn btn-primary btn-sm">Follow <i class="fas fa-user-plus"></i></button>
           <!-- <button class="btn btn-danger btn-sm">Stop Following <i class="fas fa-user-times"></i></button> -->
           @if(auth()->user()->username == $username)
