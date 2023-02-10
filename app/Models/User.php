@@ -24,6 +24,12 @@ class User extends Authenticatable
         'password',
     ];
 
+    protected function avatar(): Attribute {
+        return Attribute::make(get: function($value) {
+            return $value ? '/storage/avatars/' . $value : '/fallback-avatar.jpg';
+        });
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *
