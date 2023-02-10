@@ -1,7 +1,7 @@
 <x-layout>
   <div class="container py-md-5 container--narrow">
       <h2>
-        <img class="avatar-small" src="/storage/avatars/{{auth()->user()->avatar}}" /> {{$username}}
+        <img class="avatar-small" src="{{auth()->user()->avatar}}" /> {{$username}}
         <form class="ml-2 d-inline" action="/create-follow/{{$username}}" method="post">
           @csrf
           <button class="btn btn-primary btn-sm">Follow <i class="fas fa-user-plus"></i></button>
@@ -21,7 +21,7 @@
       <div class="list-group">
         @foreach($posts as $post)
         <a href="/post/{{$post->id}}" class="list-group-item list-group-item-action">
-          <img class="avatar-tiny" src="/storage/avatars/{{auth()->user()->avatar}}" />
+          <img class="avatar-tiny" src="{{auth()->user()->avatar}}" />
           <strong>{{$post->title}}</strong> on {{$post->created_at->format('n/j/Y')}}
         </a>
         @endforeach
